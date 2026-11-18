@@ -1,0 +1,17 @@
+# Compliance-as-Code AI Auditor Checking Applications Against Policies and Regulations
+###  Problem Description
+Modern engineering organizations face a widening chasm between regulatory obligations and the reality of software development. Regulations such as the EU AI Act, GDPR, and internal corporate governance mandates (covering data retention, security baselines, and responsible AI guardrails) are authored as complex, natural-language legal and operational texts. Conversely, the evidence required to prove compliance with these rules is highly fragmented, distributed across source code repositories, Infrastructure-as-Code (IaC) templates, architecture decision records (ADRs), model cards, and runtime operational logs.
+### The Core Pain Points
+- Manual and Infrequent Audits: Compliance reviews are typically handled as periodic, manual paperwork exercises rather than continuous engineering gates. This leads to configuration drift, sudden compliance failures, and high overhead during formal audits.
+- Semantic Ambiguity: Translating broad legal prose (e.g., “appropriate human oversight measures” or “high-risk classification”) into deterministic software checks is non-trivial. Purely deterministic rules often miss nuanced context, whereas purely generative LLM approaches can hallucinate compliance claims without verifiable backing.
+- Traceability Deficits: When an auditor or internal risk committee asks for proof of compliance, teams struggle to explicitly link a regulatory clause to a concrete code path, configuration line, or immutable log stream.
+### Survey of Related Work
+Automated compliance verification sits at the intersection of several established and emerging technical domains:
+#### 1.	Automated Code Compliance Checking (ACC) in AEC
+Rooted historically in the Architecture, Engineering, and Construction (AEC) industry, Automated Code Compliance Checking models systems on a four-stage paradigm: rule interpretation (translating regulations), model preparation (structuring design data), rule execution, and reporting. Scholars note that rule interpretation has historically served as the primary bottleneck due to the ambiguity of normative natural language. Recent innovations leverage Large Language Models to bridge this gap by transforming descriptive standards into structured rule assertions.
+#### 2.	Policy-as-Code (PaC) and Infrastructure Security
+Frameworks like Open Policy Agent (Rego), AWS Cedar, and Kyverno have operationalized security and governance by evaluating JSON-structured inputs against declarative rules. While highly effective for low-level infrastructure properties (e.g., ensuring S3 buckets are encrypted or Kubernetes pods run non-root), traditional PaC struggles to interpret semantic intent or evaluate unstructured artifacts like model cards, human-oversight procedures, and natural-language technical documentation.
+#### 3.	Continuous Compliance and GRC Automation Platforms
+Modern Governance, Risk, and Compliance (GRC) automation tools (such as Drata, Vanta, and specialized AI compliance copilots) automate evidence collection by connecting to cloud APIs, HR systems, and Git providers. However, these platforms primarily focus on standard enterprise security frameworks (SOC 2, ISO 27001) rather than deep, artifact-level semantic audits of complex machine learning systems and AI regulatory requirements (such as algorithmic transparency labeling, risk classification, and data governance under the EU AI Act).
+
+
